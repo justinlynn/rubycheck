@@ -4,22 +4,31 @@ def gen_int
 end
 
 # Returns a random byte.
-def self.gen_byte
+def gen_byte
 	gen_int % 256
 end
 
-def self.gen_char
+# Returns a random ASCII character.
+def gen_char
 	(gen_int % 128).chr
 end
 
-def self.gen_array(gen)
-	# ...
+# Returning a random array given a value generator.
+def gen_array(gen)
+	len = gen_int % 100
+
+	0.upto(len).collect { |i| gen.call }
 end
 
-def self.gen_str
-	# ...
+# Returns a random string.
+def gen_str
+	gen_char_lambda = Proc.new { gen_char }
+
+	gen_array(gen_char_lambda).join("")
 end
 
+# Evaluates property over 100 random unit tests,
+# with argument values specified in generators.
 def for_all(property, generators)
 	# ...
 end
