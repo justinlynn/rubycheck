@@ -14,19 +14,13 @@ module RubyCheck
 	end
 end
 
-propEven = :even?
+propEven = Proc.new { |n| n.even? }
 
 # Should fail.
 RubyCheck::for_all(propEven, [:gen_int])
 
 # Should pass.
 RubyCheck::for_all(propEven, [:gen_even])
-
-class String
-	def reversible?
-		this == reverse.reverse
-	end
-end
 
 module RubyCheck
 	def self.gen_palindrome
@@ -35,10 +29,10 @@ module RubyCheck
 	end
 end
 
-propReversible = :reversible?
+propPalindrome = Proc.new { |s| s == s.reverse }
 
 # Should fail.
-RubyCheck::for_all(propReversible, [:gen_str])
+RubyCheck::for_all(propPalindrome, [:gen_str])
 
 # Should pass.
-RubyCheck::for_all(propReversible, [:gen_palindrome])
+RubyCheck::for_all(propPalindrome, [:gen_palindrome])

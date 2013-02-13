@@ -18,6 +18,9 @@ http://www.yellosoft.us/quickcheck
 	Installing ri documentation for rubycheck-0.0.1...
 	Installing RDoc documentation for rubycheck-0.0.1...
 	ruby example.rb
-	Random int: 43824701698
-	Random byte: 132
-	Random char: s
+	*** Failed!
+	70300761523
+	+++ OK, passed 100 tests.
+	*** Failed!
+	_5E(V$/\7☺P:x}m;MoQ↓6i↔
+	+++ OK, passed 100 tests.

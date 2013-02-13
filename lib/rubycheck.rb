@@ -18,7 +18,7 @@ module RubyCheck
 	def self.gen_array(gen_sym)
 		len = gen_int % 100
 
-		0.upto(len).collect { |i| RubyCheck.send(gen_sym) }
+		0.upto(len).collect { |i| self.send(gen_sym) }
 	end
 
 	# Returns a random string.
@@ -29,6 +29,23 @@ module RubyCheck
 	# Evaluates property over 100 random unit tests,
 	# with argument values specified in generators.
 	def self.for_all(property, gen_syms)
-		# ...
+		trials = 100
+
+		passed_all = true
+
+		0.upto(trials - 1) { |i|
+			test_case = gen_syms.collect { |gen_sym| self.send(gen_sym) }
+
+			propertyHolds = property.call(*test_case)
+
+			if not propertyHolds
+				puts "*** Failed!"
+				puts test_case
+				return false
+			end
+		}
+
+		puts "+++ OK, passed #{trials} tests."
+		true
 	end
 end
