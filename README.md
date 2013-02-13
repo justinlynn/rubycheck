@@ -6,4 +6,17 @@ http://www.yellosoft.us/quickcheck
 
 # EXAMPLE
 
-	$ ruby example.rb
+	$ make
+	gem build rubycheck.gemspec
+	  Successfully built RubyGem
+	  Name: rubycheck
+	  Version: 0.0.1
+	  File: rubycheck-0.0.1.gem
+	gem install ./rubycheck-*.gem
+	Successfully installed rubycheck-0.0.1
+	1 gem installed
+	Installing ri documentation for rubycheck-0.0.1...
+	Installing RDoc documentation for rubycheck-0.0.1...
+	ruby example.rb
+	Random int: 90662191737
+	Random byte: 36
