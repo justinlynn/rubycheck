@@ -18,5 +18,6 @@ http://www.yellosoft.us/quickcheck
 	Installing ri documentation for rubycheck-0.0.1...
 	Installing RDoc documentation for rubycheck-0.0.1...
 	ruby example.rb
-	Random int: 90662191737
-	Random byte: 36
+	Random int: 43824701698
+	Random byte: 132
+	Random char: s

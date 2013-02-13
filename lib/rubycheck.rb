@@ -9,7 +9,7 @@ def self.gen_byte
 end
 
 def self.gen_char
-	# ...
+	(gen_int % 128).chr
 end
 
 def self.gen_array(gen)
