@@ -14,7 +14,7 @@ module RubyCheck
 	end
 end
 
-propEven = Proc.new { |n| n.even? }
+propEven = -> n { n.even? }
 
 # Should fail.
 RubyCheck::for_all(propEven, [:gen_int])
@@ -29,7 +29,7 @@ module RubyCheck
 	end
 end
 
-propPalindrome = Proc.new { |s| s == s.reverse }
+propPalindrome = -> s { s == s.reverse }
 
 # Should fail.
 RubyCheck::for_all(propPalindrome, [:gen_str])

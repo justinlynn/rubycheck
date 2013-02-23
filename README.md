@@ -10,7 +10,7 @@ FreeBSD
 
 # EXAMPLE
 
-	$ make
+	$ rake
 	gem build rubycheck.gemspec
 	  Successfully built RubyGem
 	  Name: rubycheck
