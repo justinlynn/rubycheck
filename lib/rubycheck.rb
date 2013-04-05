@@ -36,9 +36,9 @@ module RubyCheck
     0.upto(trials - 1) { |i|
       test_case = gen_syms.collect { |gen_sym| self.send(gen_sym) }
 
-      propertyHolds = property.call(*test_case)
+      property_holds = property.call(*test_case)
 
-      if not propertyHolds
+      if not property_holds
         puts "*** Failed!"
         puts test_case
         false
