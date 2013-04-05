@@ -26,27 +26,31 @@ module RubyCheck
     gen_array(:gen_char).join("")
   end
 
+  TRIALS = 100
+
+  # Used by for_all to detect property failures.
+  class PropertyFailure < RuntimeError
+    attr_accessor :test_case
+
+    def initialize(test)
+      @test_case = test
+    end
+  end
+
   # Evaluates property over 100 random unit tests,
   # with argument values specified in generators.
   def self.for_all(property, gen_syms)
-    trials = 100
-
-    passed_all = true
-
-    0.upto(trials - 1) { |i|
-      test_case = gen_syms.collect { |gen_sym| self.send(gen_sym) }
-
-      property_holds = property.call(*test_case)
-
-      if not property_holds
-        puts "*** Failed!"
-        puts test_case
-        false
-      end
-    }
-
-    puts "+++ OK, passed #{trials} tests."
-
-    true
+    begin
+      [0 .. TRIALS - 1].each { |i|
+        test_case = gen_syms.collect { |gen_sym| self.send(gen_sym) }
+        throw PropertyFailException(test_case) unless property.call(*test_case)
+      }
+    rescue PropertyFailure => e
+      puts "*** Failed!\n#{e.test_case}"
+      false
+    else
+      puts "+++ OK, passed #{TRIALS} tests."
+      true
+    end
   end
 end
