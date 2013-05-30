@@ -12,4 +12,7 @@ Gem::Specification.new { |s|
   s.files = ["lib/rubycheck.rb", "example.rb"]
 
   s.homepage = "http://www.yellosoft.us/quickcheck"
+
+  s.add_development_dependency "reek"
+  s.add_development_dependency "flay"
 }
