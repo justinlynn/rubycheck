@@ -18,7 +18,7 @@ Checkout the code, and install the dependencies:
 
     $ git clone https://github.com/mcandre/rubycheck.git
     $ cd rubycheck
-    $ bundle install
+    $ bundle
 
 # Linting
 
