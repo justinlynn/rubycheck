@@ -2,8 +2,8 @@ require "./lib/rubycheck"
 
 task :default => "test"
 
-task :test => [:gem, "example.rb"] do
-  sh "ruby example.rb"
+task :test => ["example.rb"] do
+  sh "bundle exec ruby example.rb"
 end
 
 task :gem => "rubycheck.gemspec" do

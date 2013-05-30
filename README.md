@@ -8,20 +8,28 @@ http://www.yellosoft.us/quickcheck
 
 FreeBSD
 
+# INSTALL
+
+    $ gem install rubycheck
+
+# DEVELOPMENT
+
+Checkout the code, and install the dependencies:
+
+    $ git clone https://github.com/mcandre/rubycheck.git
+    $ cd rubycheck
+    $ bundle install
+
+# Linting
+
+Keep the code base tidy:
+
+    $ rake lint
+
 # EXAMPLE
 
-    $ rake
-    gem build rubycheck.gemspec
-      Successfully built RubyGem
-      Name: rubycheck
-      Version: 0.0.1
-      File: rubycheck-0.0.1.gem
-    gem install ./rubycheck-*.gem
-    Successfully installed rubycheck-0.0.1
-    1 gem installed
-    Installing ri documentation for rubycheck-0.0.1...
-    Installing RDoc documentation for rubycheck-0.0.1...
-    ruby example.rb
+    $ rake test
+    bundle exec ruby example.rb
     *** Failed!
     70300761523
     +++ OK, passed 100 tests.
