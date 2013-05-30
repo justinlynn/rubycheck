@@ -1,4 +1,6 @@
 module RubyCheck
+  VERSION = "0.0.1"
+
   # Returns a random integer from 0 to 10^10 - 1.
   def self.gen_int
     Random::rand(10e10).to_i
@@ -43,7 +45,7 @@ module RubyCheck
     begin
       [0 .. TRIALS - 1].each { |i|
         test_case = gen_syms.collect { |gen_sym| self.send(gen_sym) }
-        throw PropertyFailException(test_case) unless property.call(*test_case)
+        raise PropertyFailure.new(test_case) unless property.call(*test_case)
       }
     rescue PropertyFailure => e
       puts "*** Failed!\n#{e.test_case}"
