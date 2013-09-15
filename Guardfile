@@ -1,6 +1,6 @@
 guard :shell do
   watch(/.+\.rb/) do |m|
-    title = "Make output"
+    title = "Rake output"
     msg = "Failure"
     status = :failed
 
