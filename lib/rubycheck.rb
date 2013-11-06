@@ -19,14 +19,14 @@ module RubyCheck
 
   # Returns a random ASCII character.
 
-  Contract nil => Char
+  Contract nil => Num
   def self.gen_char
     (gen_int % 128).chr
   end
 
   # Returning a random array given a value generator.
 
-  Contract Block => Array
+  Contract Proc => Array
   def self.gen_array(gen_sym)
     len = gen_int % 100
 
@@ -53,7 +53,7 @@ module RubyCheck
   # Evaluates property over 100 random unit tests,
   # with argument values specified in generators.
 
-  Contract Block, ArrayOf[Block] => Bool
+  Contract Proc, ArrayOf[Proc] => Bool
   def self.for_all(property, gen_syms)
     begin
       [0 .. TRIALS - 1].each { |i|
