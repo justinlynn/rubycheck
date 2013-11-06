@@ -1,22 +1,32 @@
+require "contracts"
+include Contracts
+
 module RubyCheck
   VERSION = "0.0.1"
 
   # Returns a random integer from 0 to 10^10 - 1.
+  Contract nil => Num
   def self.gen_int
     Random::rand(10e10).to_i
   end
 
   # Returns a random byte.
+
+  Contract nil => Num
   def self.gen_byte
     gen_int % 256
   end
 
   # Returns a random ASCII character.
+
+  Contract nil => Char
   def self.gen_char
     (gen_int % 128).chr
   end
 
   # Returning a random array given a value generator.
+
+  Contract Block => Array
   def self.gen_array(gen_sym)
     len = gen_int % 100
 
@@ -34,6 +44,7 @@ module RubyCheck
   class PropertyFailure < RuntimeError
     attr_accessor :test_case
 
+    Contract Array => Array
     def initialize(test)
       @test_case = test
     end
@@ -41,6 +52,8 @@ module RubyCheck
 
   # Evaluates property over 100 random unit tests,
   # with argument values specified in generators.
+
+  Contract Block, ArrayOf[Block] => Bool
   def self.for_all(property, gen_syms)
     begin
       [0 .. TRIALS - 1].each { |i|

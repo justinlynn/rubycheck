@@ -13,6 +13,8 @@ Gem::Specification.new { |s|
 
   s.homepage = "http://www.yellosoft.us/quickcheck"
 
+  s.add_dependency "contracts"
+
   s.add_development_dependency "rake"
   s.add_development_dependency "reek"
   s.add_development_dependency "flay"
