@@ -16,8 +16,9 @@ task :publish => [:gem] do
 end
 
 task :lint => [] do
-  sh "bundle exec reek -q lib; true"
-  sh "bundle exec flay lib"
+  sh "bundle exec reek -q .; true"
+  sh "bundle exec flay ."
+  sh "bundle exec flog ."
 end
 
 task :clean => [] do
