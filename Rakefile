@@ -22,6 +22,10 @@ task :lint => [] do
   sh "bundle exec roodi -config=roodi.yml *.rb **/*.rb"
 end
 
+task :churn => [] do
+  sh "bundle exec churn"
+end
+
 task :clean => [] do
   sh "rm *.gem"
 end
