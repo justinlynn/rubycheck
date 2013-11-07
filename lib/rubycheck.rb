@@ -1,6 +1,9 @@
 require "contracts"
 include Contracts
 
+#
+# RubyCheck
+#
 module RubyCheck
   VERSION = "0.0.1"
 

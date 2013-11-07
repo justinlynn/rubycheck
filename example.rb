@@ -2,6 +2,7 @@
 
 require "rubycheck"
 
+# Define gen_even
 module RubyCheck
   def self.gen_even
     i = gen_int
@@ -22,6 +23,7 @@ RubyCheck::for_all(propEven, [:gen_int])
 # Should pass.
 RubyCheck::for_all(propEven, [:gen_even])
 
+# Define gen_palindrome
 module RubyCheck
   def self.gen_palindrome
     s = gen_str
