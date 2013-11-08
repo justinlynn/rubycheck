@@ -1,13 +1,13 @@
 #!/usr/bin/env ruby
 
-require "rubycheck"
+require 'rubycheck'
 
 # Define gen_even
 module RubyCheck
   def self.gen_even
     i = gen_int
 
-    if i % 2 == 0
+    if i.even?
       i
     else
       i + 1
@@ -15,13 +15,13 @@ module RubyCheck
   end
 end
 
-propEven = -> n { n.even? }
+prop_even = -> n { n.even? }
 
 # Should fail.
-RubyCheck::for_all(propEven, [:gen_int])
+RubyCheck.for_all(prop_even, [:gen_int])
 
 # Should pass.
-RubyCheck::for_all(propEven, [:gen_even])
+RubyCheck.for_all(prop_even, [:gen_even])
 
 # Define gen_palindrome
 module RubyCheck
@@ -31,10 +31,10 @@ module RubyCheck
   end
 end
 
-propPalindrome = -> s { s == s.reverse }
+prop_palindrome = -> s { s == s.reverse }
 
 # Should fail.
-RubyCheck::for_all(propPalindrome, [:gen_str])
+RubyCheck.for_all(prop_palindrome, [:gen_str])
 
 # Should pass.
-RubyCheck::for_all(propPalindrome, [:gen_palindrome])
+RubyCheck.for_all(prop_palindrome, [:gen_palindrome])
