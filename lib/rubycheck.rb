@@ -41,7 +41,7 @@ module RubyCheck
     gen_array(:gen_char).join('')
   end
 
-  TRIALS = 100
+  TRIALS = 10000
 
   # Used by for_all to detect property failures.
   class PropertyFailure < RuntimeError
