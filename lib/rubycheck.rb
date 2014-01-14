@@ -58,7 +58,7 @@ module RubyCheck
 
   Contract Proc, ArrayOf[Proc] => Bool
   def self.for_all(property, gen_syms)
-    [0 .. TRIALS - 1].each do |i|
+    0.upto(TRIALS - 1).each do |i|
       test_case = gen_syms.map { |gen_sym| send(gen_sym) }
       fail PropertyFailure.new(test_case), 'test case error' unless property.call(*test_case)
     end
