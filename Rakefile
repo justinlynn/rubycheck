@@ -2,7 +2,7 @@ require './lib/rubycheck'
 
 task :default => 'test'
 
-task :test => ['example.rb'] do
+task :test => ['spec/'] do
   sh 'rspec'
 end
 

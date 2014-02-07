@@ -4,12 +4,12 @@ Gem::Specification.new { |s|
   s.description = 'See example.rb for API usage.'
 
   s.version = '0.0.2'
-  s.date = '2014-01-14'
+  s.date = '2014-02-06'
 
   s.authors = ['Andrew Pennebaker']
   s.email = 'andrew.pennebaker@gmail.com'
 
-  s.files = ['lib/rubycheck.rb', 'example.rb']
+  s.files = ['lib/rubycheck.rb']
 
   s.homepage = 'http://www.yellosoft.us/quickcheck'
 
