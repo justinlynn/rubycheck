@@ -4,7 +4,7 @@ Gem::Specification.new { |s|
   s.description = 'See specs/ tests for example usage.'
   s.license = 'FreeBSD'
 
-  s.version = '0.0.3'
+  s.version = '0.0.4'
   s.date = '2014-02-06'
 
   s.authors = ['Andrew Pennebaker']
