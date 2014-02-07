@@ -1,15 +1,15 @@
 # rubycheck - a Ruby port of the QuickCheck unit test framework
 
+Now [rspec](http://rspec.info/) compatible!
+
 # EXAMPLE
 
     $ rake test
-    bundle exec ruby example.rb
-    *** Failed!
-    70300761523
-    +++ OK, passed 100 tests.
-    *** Failed!
-    _5E(V$/\7☺P:x}m;MoQ↓6i↔
-    +++ OK, passed 100 tests.
+    rspec
+    ......
+    
+    Finished in 0.36783 seconds
+    6 examples, 0 failures
 
 # HOMEPAGE
 
@@ -33,6 +33,15 @@ Checkout the code, and install the dependencies:
 
 ## Testing
 
+Ensure the code logic works as expected:
+
+    $ rake test
+    rspec
+    ......
+    
+    Finished in 0.36783 seconds
+    6 examples, 0 failures
+
 Ensure the example script works as expected:
 
     $ bundle
@@ -52,3 +61,10 @@ Ensure the example script works as expected:
 Keep the code base tidy:
 
     $ rake lint
+
+## Guarding
+
+Automatically check the code on file change:
+
+    $ guard
+    $ guard -G Guardfile-lint

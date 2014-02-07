@@ -3,7 +3,7 @@ require './lib/rubycheck'
 task :default => 'test'
 
 task :test => ['example.rb'] do
-  sh 'bundle exec ruby example.rb'
+  sh 'rspec'
 end
 
 task :gem => 'rubycheck.gemspec' do

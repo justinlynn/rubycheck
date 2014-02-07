@@ -53,8 +53,10 @@ module RubyCheck
     end
   end
 
-  # Evaluates property over 100 random unit tests,
-  # with argument values specified in generators.
+  #
+  # Evaluates property over 100 random unit tests, with argument values specified in generators.
+  # Returns true, or the failing test case.
+  #
 
   Contract Proc, ArrayOf[Proc] => Bool
   def self.for_all(property, gen_syms)
@@ -63,10 +65,8 @@ module RubyCheck
       fail PropertyFailure.new(test_case), 'test case error' unless property.call(*test_case)
     end
   rescue PropertyFailure => e
-    puts "*** Failed!\n#{e.test_case}"
-    false
+    e.test_case
   else
-    puts "+++ OK, passed #{TRIALS} tests."
     true
   end
 end
