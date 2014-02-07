@@ -1,7 +1,7 @@
 Gem::Specification.new { |s|
   s.name = 'rubycheck'
   s.summary = 'a Ruby port of the QuickCheck unit test framework'
-  s.description = 'See example.rb for API usage.'
+  s.description = 'See specs/ tests for example usage.'
   s.license = 'FreeBSD'
 
   s.version = '0.0.3'
