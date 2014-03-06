@@ -23,15 +23,21 @@ http://www.yellosoft.us/quickcheck
 
 FreeBSD
 
+# REQUIREMENTS
+
+* [Ruby](https://www.ruby-lang.org/)
+
 # DEVELOPMENT
 
-Checkout the code, and install the dependencies:
+Checkout the code and install the dependencies:
 
     $ git clone https://github.com/mcandre/rubycheck.git
     $ cd rubycheck
     $ bundle
 
-## Testing
+## Test
+
+### Logic
 
 Ensure the code logic works as expected:
 
@@ -41,6 +47,8 @@ Ensure the code logic works as expected:
     
     Finished in 0.36783 seconds
     6 examples, 0 failures
+
+### CLI
 
 Ensure the example script works as expected:
 
@@ -56,13 +64,18 @@ Ensure the example script works as expected:
     2 steps (2 passed)
     0m1.245s
 
-## Linting
+## Lint
 
 Keep the code base tidy:
 
     $ rake lint
 
-## Guarding
+## Spell Check
+
+    $ aspelllint
+    ...
+
+## Local CI
 
 Automatically check the code on file change:
 
