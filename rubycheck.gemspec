@@ -29,4 +29,5 @@ Gem::Specification.new { |s|
   s.add_development_dependency 'guard'
   s.add_development_dependency 'guard-shell', '>= 0.6'
   s.add_development_dependency 'rspec'
+  s.add_development_dependency 'aspelllint'
 }
