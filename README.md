@@ -15,6 +15,10 @@ Now [rspec](http://rspec.info/) compatible!
 
 http://www.yellosoft.us/quickcheck
 
+# RUBYGEMS
+
+https://rubygems.org/gems/rubycheck
+
 # INSTALL
 
     $ gem install rubycheck
