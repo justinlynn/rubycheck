@@ -19,6 +19,10 @@ http://www.yellosoft.us/quickcheck
 
 https://rubygems.org/gems/rubycheck
 
+# RDOCS
+
+http://rubydoc.info/gems/rubycheck/frames
+
 # INSTALL
 
     $ gem install rubycheck
