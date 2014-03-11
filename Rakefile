@@ -71,4 +71,13 @@ task :clean => [] do
     sh 'rm -rf tmp'
   rescue
   end
+
+  begin
+    sh 'rm -rf doc/'
+  rescue
+  end
+end
+
+task :doc => [:clean] do
+  sh 'rdoc lib/'
 end
