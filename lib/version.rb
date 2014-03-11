@@ -1,0 +1,6 @@
+#
+# RubyCheck
+#
+module RubyCheck
+  VERSION = '0.0.4'
+end

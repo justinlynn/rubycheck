@@ -1,3 +1,5 @@
+require 'version'
+
 require 'contracts'
 include Contracts
 
@@ -5,8 +7,6 @@ include Contracts
 # RubyCheck
 #
 module RubyCheck
-  VERSION = '0.0.1'
-
   # Returns a random integer from 0 to 10^10 - 1.
   Contract nil => Num
   def self.gen_int

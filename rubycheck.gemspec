@@ -1,16 +1,18 @@
+require './lib/version'
+
 Gem::Specification.new { |s|
   s.name = 'rubycheck'
   s.summary = 'a Ruby port of the QuickCheck unit test framework'
   s.description = 'See specs/ tests for example usage.'
   s.license = 'FreeBSD'
 
-  s.version = '0.0.4'
+  s.version = RubyCheck::VERSION
   s.date = '2014-02-06'
 
   s.authors = ['Andrew Pennebaker']
   s.email = 'andrew.pennebaker@gmail.com'
 
-  s.files = ['lib/rubycheck.rb']
+  s.files = Dir['lib/*.rb'] + ['LICENSE.md']
 
   s.homepage = 'http://www.yellosoft.us/quickcheck'
 
