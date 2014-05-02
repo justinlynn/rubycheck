@@ -25,7 +25,7 @@ module RubyCheck
     Random.rand(10e10)
   end
 
-  Contract nil => Num
+  Contract nil => Integer
   #
   # Generate a random integer in [0, 10^10 - 1].
   #
@@ -38,7 +38,7 @@ module RubyCheck
     Random.rand(10e10).to_i
   end
 
-  Contract nil => Num
+  Contract nil => Integer
   #
   # Generate a random byte in [0, 255].
   #
@@ -51,7 +51,7 @@ module RubyCheck
     gen_int % 256
   end
 
-  Contract nil => Num
+  Contract nil => Integer
   #
   # Generate a random ASCII character.
   #
