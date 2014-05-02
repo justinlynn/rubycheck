@@ -6,7 +6,7 @@ task :test => ['spec/'] do
   sh 'rspec'
 end
 
-task :gem => 'rubycheck.gemspec' do
+task :gem => [:clean, 'rubycheck.gemspec'] do
   sh 'gem build *.gemspec'
   sh "gem install ./*.gem"
 end
