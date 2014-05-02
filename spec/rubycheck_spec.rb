@@ -1,5 +1,13 @@
 require 'rubycheck'
 
+describe RubyCheck, "#gen_float" do
+  it "generates random floats" do
+    RubyCheck::gen_float.class.should == Float
+
+    1.upto(100).collect { |i| RubyCheck::gen_int }.uniq.length.should > 10
+  end
+end
+
 describe RubyCheck, "#gen_int" do
   it "generates random integers" do
     RubyCheck::gen_int.class.should == Fixnum

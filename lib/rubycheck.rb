@@ -12,6 +12,19 @@ include Contracts
 # and encourages monkeypatching for defining generators for custom types.
 #
 module RubyCheck
+  Contract nil => Float
+  #
+  # Generate a random float in [0, 10^10 - 1].
+  #
+  # Example:
+  #
+  #   RubyCheck::gen_float
+  #   => 0.223
+  #
+  def self.gen_float
+    Random.rand(10e10)
+  end
+
   Contract nil => Num
   #
   # Generate a random integer in [0, 10^10 - 1].
