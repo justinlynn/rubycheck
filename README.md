@@ -11,6 +11,8 @@ Now [rspec](http://rspec.info/) compatible!
     Finished in 0.36783 seconds
     6 examples, 0 failures
 
+See `spec/` or [ios7crypt.rb](https://github.com/mcandre/ios7crypt/blob/master/ruby/ios7crypt.rb) for further examples.
+
 # HOMEPAGE
 
 http://www.yellosoft.us/quickcheck
