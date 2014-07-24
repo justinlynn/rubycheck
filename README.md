@@ -91,3 +91,7 @@ Automatically check the code on file change:
 
     $ guard
     $ guard -G Guardfile-lint
+
+## Git Hooks
+
+See `hooks/`.
