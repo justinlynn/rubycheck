@@ -76,7 +76,7 @@ module RubyCheck
   def self.gen_array(gen_sym)
     len = gen_int % 100
 
-    0.upto(len).map { |i| send(gen_sym) }
+    0.upto(len).map { || send(gen_sym) }
   end
 
   Contract nil => String
@@ -93,7 +93,7 @@ module RubyCheck
   end
 
   # Number of test cases to generate per <i>for_all</i> run
-  TRIALS = 10000
+  TRIALS = 10_000
 
   #
   # Defines an error class to capture test case input
@@ -132,7 +132,7 @@ module RubyCheck
   #   => true
   #
   def self.for_all(property, gen_syms)
-    TRIALS.times do |i|
+    TRIALS.times do ||
       test_case = gen_syms.map { |gen_sym| send(gen_sym) }
       fail PropertyFailure.new(test_case), 'test case error' unless property.call(*test_case)
     end

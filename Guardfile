@@ -1,8 +1,8 @@
 guard :shell do
-  watch(/^Rakefile|\..*|\.rb$/) do |m|
+  watch(/^Rakefile|\..*|\.rb$/) do ||
     title = 'Test'
     eager 'rake test'
-    status = ($?.success? && :success) || :failed
+    status = ($CHILD_STATUS.success? && :success) || :failed
     n '', title, status
     ''
   end
