@@ -16,6 +16,8 @@ Gem::Specification.new { |s|
 
   s.homepage = 'http://www.yellosoft.us/quickcheck'
 
+  s.required_ruby_version = '>= 1.9'
+
   s.add_dependency 'contracts', '~> 0.4'
 
   s.add_development_dependency 'rake', '~> 10.3'
