@@ -13,7 +13,7 @@ Finished in 0.36783 seconds
 6 examples, 0 failures
 ```
 
-See `spec/` or [ios7crypt.rb](https://github.com/mcandre/ios7crypt/blob/master/ruby/ios7crypt.rb) for further examples.
+See [ios7crypt.rb](https://github.com/mcandre/ios7crypt/blob/master/ruby/ios7crypt.rb) or rubycheck's [self-tests](https://github.com/mcandre/rubycheck/blob/master/spec/rubycheck_spec.rb) for more information.
 
 # HOMEPAGE
 
