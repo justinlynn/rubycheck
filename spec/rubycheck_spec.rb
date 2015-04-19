@@ -1,5 +1,11 @@
 require 'rubycheck'
 
+describe RubyCheck, '#gen_bool' do
+  it 'generates random booleans' do
+    expect(1.upto(100).map { || RubyCheck.gen_bool }.to_set).to eq([true, false].to_set)
+  end
+end
+
 describe RubyCheck, '#gen_float' do
   it 'generates random floats' do
     expect(RubyCheck.gen_float.class).to eq(Float)
@@ -13,6 +19,38 @@ describe RubyCheck, '#gen_int' do
     expect(RubyCheck.gen_int.class).to eq(Fixnum)
 
     expect(1.upto(100).map { || RubyCheck.gen_int }.uniq.length).to be > 10
+
+    module RubyCheck
+      def self.gen_int_array
+        gen_array(:gen_int)
+      end
+    end
+
+    prop_contains_some_positives = -> a { a.length < 50 || a.select { |i| i > 0 }.length > 0 }
+    prop_contains_some_negatives = -> a { a.length < 50 || a.select { |i| i < 0 }.length > 0 }
+
+    expect(RubyCheck.for_all(prop_contains_some_positives, [:gen_int_array])).to be true
+    expect(RubyCheck.for_all(prop_contains_some_negatives, [:gen_int_array])).to be true
+  end
+end
+
+describe RubyCheck, '#gen_uint' do
+  it 'generates random unsigned integers' do
+    expect(RubyCheck.gen_uint.class).to eq(Fixnum)
+
+    expect(1.upto(100).map { || RubyCheck.gen_uint }.uniq.length).to be > 10
+
+    module RubyCheck
+      def self.gen_uint_array
+        gen_array(:gen_uint)
+      end
+    end
+
+    prop_contains_some_positives = -> a { a.select { |i| i > 0 }.length > 0 }
+    prop_contains_some_negatives = -> a { a.select { |i| i < 0 }.length > 0 }
+
+    expect(RubyCheck.for_all(prop_contains_some_positives, [:gen_uint_array])).to be true
+    expect(RubyCheck.for_all(prop_contains_some_negatives, [:gen_uint_array]).class).to eq(Array)
   end
 end
 

@@ -12,6 +12,19 @@ include Contracts
 # and encourages monkeypatching for defining generators for custom types.
 #
 module RubyCheck
+  Contract nil => Bool
+  #
+  # Generate a random boolean.
+  #
+  # Example:
+  #
+  #   RubyCheck::gen_bool
+  #   => false
+  #
+  def self.gen_bool
+    Random.rand < 0.5
+  end
+
   Contract nil => Float
   #
   # Generate a random float in [0, 10^10 - 1].
@@ -27,15 +40,34 @@ module RubyCheck
 
   Contract nil => Integer
   #
-  # Generate a random integer in [0, 10^10 - 1].
+  # Generate a random unsigned integer in [0, 10^10 - 1].
+  #
+  # Example:
+  #
+  #   RubyCheck::gen_uint
+  #   => 4
+  #
+  def self.gen_uint
+    Random.rand(10e10).to_i
+  end
+
+  Contract nil => Integer
+  #
+  # Generate a random integer in [(-1 * 10^10) + 1, 10^10 - 1].
   #
   # Example:
   #
   #   RubyCheck::gen_int
-  #   => 4
+  #   => -4
   #
   def self.gen_int
-    Random.rand(10e10).to_i
+    i = Random.rand(10e10).to_i
+
+    if gen_bool
+      i
+    else
+      i * -1
+    end
   end
 
   Contract nil => Integer
@@ -48,7 +80,7 @@ module RubyCheck
   #   => 96
   #
   def self.gen_byte
-    gen_int % 256
+    gen_uint % 256
   end
 
   Contract nil => Integer
@@ -61,7 +93,7 @@ module RubyCheck
   #   => "Q"
   #
   def self.gen_char
-    (gen_int % 128).chr
+    (gen_uint % 128).chr
   end
 
   Contract Proc => Array
@@ -70,11 +102,11 @@ module RubyCheck
   #
   # Example:
   #
-  #   RubyCheck::gen_array(:gen_int)
+  #   RubyCheck::gen_array(:gen_uint)
   #   => [1, 3, 3, 7]
   #
   def self.gen_array(gen_sym)
-    len = gen_int % 100
+    len = gen_uint % 100
 
     0.upto(len).map { || send(gen_sym) }
   end
@@ -125,10 +157,10 @@ module RubyCheck
   #
   # Example:
   #
-  #   RubyCheck::for_all( ->(i) { i.even? }, [:gen_int])
+  #   RubyCheck::for_all( ->(i) { i.even? }, [:gen_uint])
   #   => [9]
   #
-  #   RubyCheck::for_all( ->(i) { i.even? || i.odd? }, [:gen_int])
+  #   RubyCheck::for_all( ->(i) { i.even? || i.odd? }, [:gen_uint])
   #   => true
   #
   def self.for_all(property, gen_syms)
