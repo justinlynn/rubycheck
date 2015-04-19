@@ -4,7 +4,7 @@ describe RubyCheck, '#gen_float' do
   it 'generates random floats' do
     expect(RubyCheck.gen_float.class).to eq(Float)
 
-    expect(1.upto(100).map { || RubyCheck.gen_int }.uniq.length).to be > 10
+    expect(1.upto(100).map { || RubyCheck.gen_float }.uniq.length).to be > 10
   end
 end
 
