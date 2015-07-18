@@ -54,6 +54,26 @@ describe RubyCheck, '#gen_uint' do
   end
 end
 
+describe RubyCheck, '#gen_uint16' do
+  it 'generates random unsigned integers' do
+    expect(RubyCheck.gen_uint16.class).to eq(Fixnum)
+
+    expect(1.upto(100).map { || RubyCheck.gen_uint16 }.uniq.length).to be > 10
+
+    module RubyCheck
+      def self.gen_uint16_array
+        gen_array(:gen_uint16)
+      end
+    end
+
+    prop_contains_some_positives = -> a { a.select { |i| i > 0 }.length > 0 }
+    prop_contains_some_negatives = -> a { a.select { |i| i < 0 }.length > 0 }
+
+    expect(RubyCheck.for_all(prop_contains_some_positives, [:gen_uint16_array])).to be true
+    expect(RubyCheck.for_all(prop_contains_some_negatives, [:gen_uint16_array]).class).to eq(Array)
+  end
+end
+
 describe RubyCheck, '#gen_byte' do
   it 'generates random bytes' do
     expect(RubyCheck.gen_byte.class).to eq(Fixnum)
