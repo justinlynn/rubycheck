@@ -54,6 +54,19 @@ module RubyCheck
 
   Contract nil => Integer
   #
+  # Generate a random unsigned integer in [0, 2^16 - 1].
+  #
+  # Example:
+  #
+  #   RubyCheck::gen_uint16
+  #   => 4
+  #
+  def self.gen_uint16
+    Random.rand(65535).to_i
+  end
+
+  Contract nil => Integer
+  #
   # Generate a random integer in [(-1 * 10^10) + 1, 10^10 - 1].
   #
   # Example:
