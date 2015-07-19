@@ -12,7 +12,6 @@ include Contracts
 # and encourages monkeypatching for defining generators for custom types.
 #
 module RubyCheck
-  include Contracts::Modules
 
   Contract nil => Bool
   #
