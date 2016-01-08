@@ -39,7 +39,7 @@ FreeBSD
 
 # REQUIREMENTS
 
-* [Ruby](https://www.ruby-lang.org/) 1.9+
+* [Ruby](https://www.ruby-lang.org/) 2.0+
 
 # DEVELOPMENT
 
