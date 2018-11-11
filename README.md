@@ -17,7 +17,7 @@ See [ios7crypt.rb](https://github.com/mcandre/ios7crypt/blob/master/ruby/ios7cry
 
 # HOMEPAGE
 
-http://www.yellosoft.us/quickcheck
+https://github.com/mcandre/rubycheck
 
 # RUBYGEMS
 
