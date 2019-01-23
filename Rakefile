@@ -13,7 +13,7 @@ task :uninstall => [:gem] do
 end
 
 task :test => [:clean, :install] do
-    sh 'cucumber'
+    sh 'rspec'
 end
 
 task :publish => [:clean, :gem] do
